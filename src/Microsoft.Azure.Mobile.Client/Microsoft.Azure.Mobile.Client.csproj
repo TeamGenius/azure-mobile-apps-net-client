@@ -2,7 +2,7 @@
   <Import Project="..\..\build\Microsoft.Azure.Mobile.Client.Build.props" />
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461;monoandroid90;monoandroid10.0;xamarin.ios10</TargetFrameworks>
-    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">$(TargetFrameworks);uap10.0</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">$(TargetFrameworks)</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
@@ -56,14 +56,6 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <Reference Include="System.Runtime.Serialization" />
     <Compile Include="Platforms\ios\**\*.cs" />
-  </ItemGroup>
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('uap10.0'))">
-    <DefineConstants>$(DefineConstants);WINDOWS_UWP;WINDOWS_UAP</DefineConstants>
-    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
-  </PropertyGroup>
-  <ItemGroup Condition="$(TargetFramework.StartsWith('uap10.0'))">
-    <Compile Include="Platforms\uwp\**\*.cs" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <Compile Include="Platforms\netstandard20\**\*.cs" />
