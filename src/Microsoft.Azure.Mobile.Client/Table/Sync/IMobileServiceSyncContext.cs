@@ -61,5 +61,6 @@ namespace Microsoft.WindowsAzure.MobileServices.Sync
         /// <param name="cancellationToken">The <see cref="System.Threading.CancellationToken"/> token to observe</param>
         /// <returns>A task that completes when pull operation has finished.</returns>
         Task PushAsync(CancellationToken cancellationToken);
+        Task DeleteAllSyncErrorsAsync();
     }
 }

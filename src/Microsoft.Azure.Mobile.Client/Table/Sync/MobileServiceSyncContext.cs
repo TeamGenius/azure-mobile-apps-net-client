@@ -342,6 +342,11 @@ namespace Microsoft.WindowsAzure.MobileServices.Sync
             }
         }
 
+        public async Task DeleteAllSyncErrorsAsync()
+        {
+            await Store.DeleteAsync(new MobileServiceTableQueryDescription(MobileServiceLocalSystemTables.SyncErrors));
+        }
+
         private IMobileServiceLocalStore CreateTrackedStore(StoreOperationSource operationSource)
             => StoreChangeTrackerFactory.CreateTrackedStore(Store, operationSource, StoreTrackingOptions, client.EventManager, settings);
 
